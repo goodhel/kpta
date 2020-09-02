@@ -25,7 +25,12 @@
                     <div class="form-group row">
                         <label class="col-12" for="example-text-input">Jenis Topik</label>
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="jenis_topik" value="{{$data->jenis_topik}}">
+                            <select name="jenis_topik" class="form-control js-select2">
+                                <option value="1" {{ $data->jenis_topik == 1 ? 'selected' : ''}}>Topik Proyek Kreatif</option>
+                                <option value="2" {{ $data->jenis_topik == 2 ? 'selected' : ''}}>Topik Capstone Design</option>
+                                <option value="3" {{ $data->jenis_topik == 3 ? 'selected' : ''}}>Topik Tugas Akhir</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" name="jenis_topik" value="{{$data->jenis_topik}}"> -->
                             <span class="text-danger">{{ $errors->first('jenis_topik') }}</span>
                         </div>
                     </div>
@@ -79,6 +84,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-12">Status Topik</label>
+                        <div class="col-md-12">
+                            <select name="isAmbil" class="form-control js-select2">
+                                <option value="1" {{$data->isAmbil == 1 ? 'selected' : ''}}>Judul Sudah Diambil</option>
+                                <option value="0" {{$data->isAmbil == 0 ? 'selected' : ''}}>Judul Belum Diambil</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-lg-12 ml-auto">
                             <button type="submit" class="btn btn-alt-warning mb-5">Update</button>
                             <a href="{{route('dosen.tawaran.index')}}" class="btn btn-alt-secondary mb-5">Kembali</a>
@@ -90,4 +104,8 @@
     </div>
     </form>
 </div>
+@endsection
+
+@section('js_after')
+<script>jQuery(function(){ Codebase.helper(['select2']);});</script>
 @endsection

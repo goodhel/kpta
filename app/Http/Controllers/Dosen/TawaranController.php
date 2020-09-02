@@ -60,6 +60,7 @@ class TawaranController extends Controller
             'penjelasan' => 'required',
             'hardware' => 'required',
             'software' => 'required',
+            'isAmbil' => 'required',
         ]);
         // dd($validateData);
         Tawaran::create($validateData);
@@ -107,6 +108,7 @@ class TawaranController extends Controller
             'penjelasan' => 'required',
             'hardware' => 'required',
             'software' => 'required',
+            'isAmbil' => 'required',
         ]);
 
         Tawaran::where('id',$id)->update($validateData);

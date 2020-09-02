@@ -13,11 +13,6 @@
             <div class="block">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Topik Tugas Akhir</h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option">
-                            <i class="si si-wrench"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="block-content">
                     <div class="form-group row">
@@ -26,11 +21,17 @@
                             <input type="text" class="form-control" name="nama" value="{{$dosen->nama_dosen}}" readonly>
                         </div>
                     </div>
-                    <input type="hidden" class="form-control" name="dosen_id" value="{{$dosen->id}}" hidden> 
+                    <input type="hidden" class="form-control" name="dosen_id" value="{{$dosen->id}}" hidden>
+                    <input type="hidden" class="form-control" name="isAmbil" value="0" hidden>
                     <div class="form-group row">
                         <label class="col-12" for="example-text-input">Jenis Topik</label>
                         <div class="col-md-12">
-                            <input required type="text" class="form-control" name="jenis_topik" value="{{old('jenis_topik')}}" placeholder="eg : Topik Tugas Akhir">
+                            <select required name="jenis_topik" class="form-control js-select2">
+                                <option value="">Pilih Jenis Topik</option>
+                                <option value="1">Topik Proyek Kreatif</option>
+                                <option value="2">Topik Capstone Design</option>
+                                <option value="3">Topik Tugas Akhir</option>
+                            </select>
                             <span class="text-danger">{{ $errors->first('jenis_topik') }}</span>
                         </div>
                     </div>
@@ -62,11 +63,6 @@
             <div class="block">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Hardware & Software</h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option">
-                            <i class="si si-wrench"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="block-content">
                     <div class="form-group row">
@@ -95,4 +91,7 @@
     </div>
     </form>
 </div>
+@endsection
+@section('js_after')
+<script>jQuery(function(){ Codebase.helpers(['select2']); });</script>
 @endsection

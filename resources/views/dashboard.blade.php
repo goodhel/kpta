@@ -242,28 +242,16 @@
                             <tr>
                                 <th class="d-none d-sm-table-cell text-center" style="width: 3%;">No</th>
                                 <th class="text-center" style="width: 12%;">Pemberi Topik</th>
-                                <th class="text-center" style="width: 12%;">Jenis Topik</th>
-                                <th class="text-center" style="width: 12%;">Nama Proyek</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 12%;">Judul Topik</th>
+                                <th class="text-center" style="width: 10%;">Jenis Topik</th>
+                                <th class="text-center" style="width: 10%;">Nama Proyek</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Judul Topik</th>
                                 <th class="d-none d-sm-table-cell text-center" style="width: 12%;">Penjelasan</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 12%;">Hardware</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 12%;">software</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Hardware</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Software</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr>
-                                <td class="d-none d-sm-table-cell">1</td>
-                                <td>Agus Ramelan</td>
-                                <td>Topik Tugas Akhir</td>
-                                <td>IoT untuk Smart Buildings</td>
-                                <td class="d-none d-sm-table-cell">Buildings Energy Management System based on LoRa Modulation</td>
-                                <td class="d-none d-sm-table-cell">LoRa merupakan modulasi IoT dengan kehandalan sinyal lebih stabil di daerah-daerah tertutup, 
-                                    berbasis frekuensi, low power dan handal. LoRa dapat dijadikan alternatif komunikasi IoT 
-                                    dalam manajemen energi di gedung, studi kasus Fakultas Teknik. 
-                                    Monotiring energi dapa bermanfaat untuk efesiensi energi.</td>
-                                <td class="d-none d-sm-table-cell">Arduino/Raspi, Sensor Arus, Sensor Tegangan, LoRa, Lora Gateway</td>
-                                <td class="d-none d-sm-table-cell">Arduino IDE, Python, PowerBi Dashboard, database, web programming</td>
-                            </tr> -->
                             <?php $no=1; ?>
                             @foreach ($tawaran as $row)                              
                             <tr>
@@ -271,8 +259,15 @@
                                 <td class="font-w600 font-size-sm text-justify">
                                     <a href="#">{{$row->nama_dosen}}</a>
                                 </td>
-                                <td class="font-size-sm text-justify">
-                                    {{$row->jenis_topik}}
+                                <td class="font-size-sm text-center">
+                                    <?php $topik = $row->jenis_topik ?>
+                                    @if($topik == 1)
+                                        <span class="badge badge-pill badge-warning">Topik Proyek Kreatif</span>
+                                    @elseif($topik == 2)
+                                        <span class="badge badge-pill badge-success">Topik Capstone Design</span>
+                                    @else
+                                        <span class="badge badge-pill badge-primary">Topik Tugas Akhir</span>
+                                    @endif
                                 </td>
                                 <td class="font-size-sm text-justify">
                                     {{$row->nama_proyek}}
@@ -288,6 +283,14 @@
                                 </td>
                                 <td class="d-none d-sm-table-cell font-size-sm text-justify">
                                     {{$row->software}}
+                                </td>
+                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                    <?php $topik = $row->isAmbil ?>
+                                    @if($topik == 1)
+                                        <span class="badge badge-pill badge-primary">Sudah Diambil</span>
+                                    @else
+                                        <span class="badge badge-pill badge-danger">Belum Diambil</span
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -488,13 +491,13 @@
                                         @foreach ($jumlogbook as $row)                              
                                         <tr>
                                             <td class="d-none d-sm-table-cell font-size-sm text-center">{{ $no++}}</td>
-                                            <td class="text-justify font-size-sm">
+                                            <td class="font-size-sm text-center">
                                                 {{$row->nim}}
                                             </td>
                                             <td class="font-size-sm text-center">
                                                 <a href="#">{{ $row->nama_mhs}}</a>
                                             </td>
-                                            <td class="d-none d-sm-table-cell text-justify">
+                                            <td class="d-none d-sm-table-cell text-center">
                                                 {{$row->total}}
                                             </td>
                                         </tr>

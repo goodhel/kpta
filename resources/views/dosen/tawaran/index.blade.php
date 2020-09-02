@@ -23,10 +23,11 @@
             <thead>
                 <tr>
                     <th class="d-none d-sm-table-cell text-center" style="width: 3%">No</th>
-                    <th class="text-center" style="width: 25%;">Pemberi Topik</th>
-                    <th class="d-none d-sm-table-cell text-center" style="width: 20%;">Jenis Topik</th>
+                    <th class="text-center" style="width: 20%;">Pemberi Topik</th>
+                    <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Jenis Topik</th>
                     <th class="d-none d-sm-table-cell text-center" style="width: 20%;">Nama Proyek</th>
                     <th class="text-center" style="width: 17%;">Judul Topik</th>
+                    <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Status</th>
                     <th class="text-center" style="width: 15%;">Action</th>
                 </tr>
             </thead>
@@ -39,13 +40,28 @@
                         <a href="#">{{ $row->nama_dosen}}</a>
                     </td>
                     <td class="d-none d-sm-table-cell text-center font-size-sm text-center">
-                        {{$row->jenis_topik}}
+                        <?php $topik = $row->jenis_topik ?>
+                        @if($topik == 1)
+                            <span class="badge badge-pill badge-warning">Topik Proyek Kreatif</span>
+                        @elseif($topik == 2)
+                            <span class="badge badge-pill badge-success">Topik Capstone Design</span>
+                        @else
+                            <span class="badge badge-pill badge-primary">Topik Tugas Akhir</span>
+                        @endif
                     </td>
                     <td class="d-none d-sm-table-cell" style="text-align: center;">
                         {{$row->nama_proyek}}
                     </td>
                     <td style="text-align: center;">
                         {{$row->judul_topik}}
+                    </td>
+                    <td class="d-none d-sm-table-cell" style="text-align: center;">
+                    <?php $topik = $row->isAmbil ?>
+                        @if($topik == 1)
+                            <span class="badge badge-pill badge-primary">Sudah Diambil</span>
+                        @else
+                            <span class="badge badge-pill badge-danger">Belum Diambil</span
+                        @endif
                     </td>
                     <td style="text-align: center;">
                         <a href="{{route('dosen.tawaran.show', $row->id)}}" class="btn btn-sm btn-alt-primary mr-5 mb-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat"><i class="fa fa-eye"></i></a>

@@ -22,8 +22,14 @@
                     <div class="form-group row">
                         <label class="col-12" for="example-text-input">Jenis Topik</label>
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="jenis_topik" value="{{$data->jenis_topik}}" readonly>
-                            <span class="text-danger">{{ $errors->first('jenis_topik') }}</span>
+                            <?php $topik = $data->jenis_topik ?>
+                            @if($topik == 1)
+                                <input type="text" class="form-control" name="jenis_topik" value="Topik Proyek Kreatif" readonly>
+                            @elseif($topik == 2)
+                                <input type="text" class="form-control" name="jenis_topik" value="Topik Capstone Design" readonly>
+                            @else
+                                <input type="text" class="form-control" name="jenis_topik" value="Topik Tugas Akhir" readonly>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
@@ -73,6 +79,12 @@
                         <div class="col-md-12">
                             <textarea type="text" class="form-control" id="software" name="software" rows="4" readonly>{{$data->software}}</textarea>
                             <span class="text-danger">{{ $errors->first('software') }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12" for="example-text-input">Status Judul Topik</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" value="{{$data->isAmbil ? 'Judul Sudah Diambil' : 'Judul Belum Diambil'}}" readonly>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -94,7 +94,7 @@
                         <div class="form-group row">
                             <div class="col-md-9 text-center">
                                 <label>Persetujuan PENUGASAN KP</label>
-                                <textarea required type="text" rows="2" name="penugasan" class="form-control" placeholder="Masukkan Tugas yang harus dilakukan selama Kerja Praktek/Magang">{{$kp->penugasan_kp}}</textarea>
+                                <textarea required type="text" rows="2" name="penugasan" class="form-control" placeholder="Masukkan Tugas yang harus dilakukan selama Kerja Praktek/Magang">{{$kp->penugasan_kp ?? ''}}</textarea>
                             </div>
                             @if(($accPembimbing->penugasan_kp ?? '') != null)
                                 <div class="col-md-2 text-center">
@@ -103,7 +103,7 @@
                             @else
                             <div class="col-md-2 text-center">
                                 <input type="hidden" name="mhs_id" value="{{$data->id}}">
-                                <input type="hidden" name="kp_id" value="{{$kp->kp_id}}">
+                                <input type="hidden" name="kp_id" value="{{$kp->kp_id ?? ''}}">
                                 <button type="submit" name="action" value="penugasan" class="btn btn-alt-success">SETUJUI</button>
                             </div>
                             @endif
