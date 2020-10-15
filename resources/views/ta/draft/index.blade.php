@@ -137,12 +137,15 @@
                 </div>
                 <div class="form-group" align="center">
                     <span href="" class="badge py-10 px-20 font-w700 {{($bebaslab->kalab_komputer ?? '') == 1 ? 'badge-success' : 'badge-primary'}}">Kalab Komputer</span>
+                    <span href="" class="badge py-10 px-20 font-w700 {{($bebaslab->laboran_elektronika ?? '') == 1 ? 'badge-success' : 'badge-primary'}}">Laboran Elektronika</span>
+                </div>
+                <div class="form-group" align="center">
                     <span href="" class="badge py-10 px-20 font-w700 {{($bebaslab->pembimbing_akademik ?? '') == 1 ? 'badge-success' : 'badge-primary'}}">Pembimbing Akademik</span>
                 </div>
             </div>
             <div class="col-md-2" align="center">
                 <div class="form-group" style="padding: 38px 0;">
-                    <span class="badge {{(($bebaslab->kalab_sel ?? '') == 1) && (($bebaslab->kalab_ik ?? '') == 1) && (($bebaslab->kalab_elektronika ?? '') == 1) && (($bebaslab->kalab_tele ?? '') == 1) && (($bebaslab->pembimbing_akademik ?? '') == 1) != null ? 'badge-success' : 'badge-info'}}">
+                    <span class="badge {{(($bebaslab->kalab_sel ?? '') == 1) && (($bebaslab->kalab_ik ?? '') == 1) && (($bebaslab->kalab_elektronika ?? '') == 1) && (($bebaslab->kalab_tele ?? '') == 1) && (($bebaslab->laboran_elektronika ?? '') == 1) && (($bebaslab->pembimbing_akademik ?? '') == 1) != null ? 'badge-success' : 'badge-info'}}">
                     {{(($bebaslab->kalab_sel ?? '') == 1) && (($bebaslab->kalab_ik ?? '') == 1) && (($bebaslab->kalab_elektronika ?? '') == 1) && (($bebaslab->kalab_tele ?? '') == 1) && (($bebaslab->kalab_komputer ?? '') == 1) && (($bebaslab->pembimbing_akademik ?? '') == 1) != null ? 'SUDAH LENGKAP' : 'BELUM LENGKAP'}}
                     </span>
                 </div>

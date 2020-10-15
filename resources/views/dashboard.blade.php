@@ -24,8 +24,8 @@
                     <h3 class="block-title"><i class="fa fa-play fa-fw text-primary"></i> Multiple Images &amp; Center Mode</h3>
                 </div> -->
                     <div class="js-slider slick-nav-black slick-nav-hover" data-dots="true" data-arrows="true"  data-autoplay="true" data-autoplay-speed="3000">
-                        <div class="bg-image bg-image-bottom" style="background-image: url('{{asset('/media/photos/photo34@2x.jpg')}}');">
-                            <div class="bg-primary-dark-op">
+                        <div class="bg-image bg-image-middle" style="background-image: url('{{asset('/media/Dashboard1.png')}}');">
+                            <div class="bg-primary-dark-50">
                                 <div class="content content-top text-center overflow-hidden">
                                     <div class="pt-50 pb-20">
                                         <h1 class="font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInUp">Teknik Elektro</h1>
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-image bg-image-bottom" style="background-image: url('{{asset('/media/photos/photo27@2x.jpg')}}');">
+                        <div class="bg-image bg-image-middle" style="background-image: url('{{asset('/media/Dashboard3.png')}}');">
                             <div class="bg-primary-dark-op">
                                 <div class="content content-top text-center overflow-hidden">
                                     <div class="pt-50 pb-20">

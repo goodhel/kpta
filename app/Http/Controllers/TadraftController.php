@@ -38,12 +38,12 @@ class TadraftController extends Controller
     {
         $nim = Auth::user()->nim;
         $data = Pendadaran::setuju($nim)->first();
-        $bio = Biodataalumni::where('mahasiswa_id',$data->mahasiswa_id)->first();
-        $exitsurvey = Exitsurvey::where('mahasiswa_id',$data->mahasiswa_id)->first();
-        $halpengesahan = Halpengesahan::where('mahasiswa_id',$data->mahasiswa_id)->first();
-        $bebaslab = Bebaslab::where('mahasiswa_id',$data->mahasiswa_id)->first();
         // dd($halpengesahan);
         if($data != null){
+            $bio = Biodataalumni::where('mahasiswa_id',$data->mahasiswa_id)->first();
+            $exitsurvey = Exitsurvey::where('mahasiswa_id',$data->mahasiswa_id)->first();
+            $halpengesahan = Halpengesahan::where('mahasiswa_id',$data->mahasiswa_id)->first();
+            $bebaslab = Bebaslab::where('mahasiswa_id',$data->mahasiswa_id)->first();
             return view('ta.draft.index',compact('data','bio','exitsurvey','halpengesahan','bebaslab'));
         }
         return view('errors.pendadaran');
