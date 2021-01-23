@@ -34,7 +34,7 @@
                     <td class="d-none d-sm-table-cell font-size-sm text-center">{{ $no++}}</td>
                     <td class="d-none d-sm-table-cell font-size-sm text-center">{{ $row->nim}}</td>
                     <td class="font-w600 font-size-sm text-center">
-                        <a href="{{route('admin.listta.show', $row->nim)}}">{{ $row->nama_mhs}}</a>
+                        <a href="{{route('admin.listta.show', $row->id)}}">{{ $row->nama_mhs}}</a>
                     </td>
                     <td class="font-size-sm text-center">
                         {{ $row->judul}}

@@ -79,7 +79,7 @@ class LogbooktaController extends Controller
         // $myEmail = ['ggfrozz@gmail.com','ydhprp@gmail.com'];
    
         $details = [
-            'title' => 'Mail Test Portal KPTA',
+            'title' => 'Log Book Tugas Akhir Portal KPTA',
             'url' => 'https://si.ft.uns.ac.id/portalelektro',
             'kegiatan' => $request->kegiatan,
             'bab' => $request->bab,

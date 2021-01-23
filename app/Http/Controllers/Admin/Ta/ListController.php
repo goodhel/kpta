@@ -40,6 +40,7 @@ class ListController extends Controller
     public function index()
     {
         $data = Ta::listta();
+        // dd($data);
         return view('admin.ta.listta.list_tugasakhir',compact('data'));
     }
 
@@ -72,7 +73,7 @@ class ListController extends Controller
      */
     public function show($id)
     {
-        $ta = Ta::setuju($id)->first();
+        $ta = Ta::get_ta($id)->first();
         $halpengesahan = Halpengesahan::where('mahasiswa_id',$ta->mahasiswa_id)->get()->last();
         //Seminar Hasil
         $semhas = Seminarta::get_semhas($ta->id)->get()->last();
